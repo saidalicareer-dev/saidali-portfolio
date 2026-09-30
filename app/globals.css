@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg:#F3F4EF; --fg:#14211F; --muted:#586863; --line:#C9D1CA; --accent:#0E6E5F; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0F1A18; --fg:#E6EEEA; --muted:#93A5A0; --line:#2A3A36; --accent:#5FD1B9; }
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font-family: "Segoe UI Variable", "Avenir Next", "Helvetica Neue", system-ui, sans-serif; }
+h1, h2, h3 { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* The one animated moment: the traceability chain builds left to right on load. */
+@keyframes step-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.step { opacity: 0; animation: step-in .5s ease forwards; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .step { animation: none; opacity: 1; }
+}
